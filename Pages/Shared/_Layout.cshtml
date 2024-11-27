@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - LMS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    <link id="theme-style" rel="stylesheet" href="/css/light.css"/>
+    <link rel="stylesheet" href="/css/custom.css">
+    <style>
+        /* Общий фон и текст */
+        body {
+            background-color: #0a1f33; /* Тёмно-синий фон */
+            color: #eaeaea; /* Светлый текст */
+        }
+
+        /* Header */
+        header.navbar {
+            background-color: #081b2d; /* Тёмно-синий */
+            color: white;
+            border-bottom: 3px solid #ffffff; /* Белая полоса снизу */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #081b2d; /* Тёмно-синий */
+            color: white;
+            border-top: 3px solid #ffffff; /* Белая полоса сверху */
+        }
+
+        /* Sidebar */
+        aside {
+            background-color: #081b2d; /* Тёмно-синий */
+            color: #ffffff;
+            border-right: 3px solid #ffffff; /* Белая полоса справа */
+        }
+
+        /* Ссылки в sidebar */
+        aside .nav-link {
+            color: #b8daff; /* Светло-голубой */
+        }
+        aside .nav-link:hover {
+            color: #81c4ff; /* Ещё светлее голубой */
+        }
+
+        /* Заголовки */
+        h5.text-primary {
+            color: #b8daff !important; /* Голубой цвет заголовков */
+            border-bottom: 2px solid #ffffff; /* Полоса под заголовком */
+        }
+
+        /* Navbar brand */
+        .navbar-brand, .text-white {
+            color: #ffffff !important;
+        }
+
+        /* Светлая тема для контента */
+        .light-theme-main {
+            background-color: #ffffff;
+            color: #212529;
+        }
+
+        /* Тёмная тема для контента */
+        .dark-theme-main {
+            background-color: #0a1f33;
+            color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header class="navbar navbar-expand-lg navbar-dark shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">LMS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="d-flex align-items-center">
+                <!-- Language Selector -->
+                <select id="language-select" class="form-select form-select-sm me-3" style="width: auto;">
+                    <option value="en">English</option>
+                    <option value="ru">Русский</option>
+                    <option value="tj">Тоҷикӣ</option>
+                    <option value="uz">O'zbekcha</option>
+                </select>
+                <!-- Theme Toggle -->
+                <button class="btn btn-light btn-sm" id="theme-toggle">Toggle Theme</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content Area -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <aside class="col-2 vh-100 p-3">
+            <h5 class="text-primary">Navigation</h5>
+            <nav class="nav flex-column">
+                <a class="nav-link" href="/">🏠 Home</a>
+                <a class="nav-link" href="/Groups">👥 Groups</a>
+                <a class="nav-link" href="/Students">🎓 Students</a>
+                <a class="nav-link" href="/Mentors">👨‍🏫 Mentors</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-10 p-4 light-theme-main">
+            @RenderBody()
+        </main>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center py-3 mt-auto">
+    <div class="container">
+        <p class="mb-0">© 2024 LMS System. All Rights Reserved.</p>
+        <p class="mb-0">Developed with ❤️ by Habib.</p>
+    </div>
+</footer>
+
+<script>
+    // Theme Toggle
+    const themeToggle = document.getElementById("theme-toggle");
+    const mainContent = document.querySelector("main");
+
+    themeToggle.addEventListener("click", () => {
+        // Проверяем текущую тему для main
+        if (mainContent.classList.contains("light-theme-main")) {
+            mainContent.classList.remove("light-theme-main");
+            mainContent.classList.add("dark-theme-main");
+        } else {
+            mainContent.classList.remove("dark-theme-main");
+            mainContent.classList.add("light-theme-main");
+        }
+    });
+
+    // Language Selector
+    document.getElementById("language-select").addEventListener("change", (e) => {
+        const selectedLanguage = e.target.value;
+        console.log("Selected Language:", selectedLanguage);
+        // Add custom logic for language changes
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

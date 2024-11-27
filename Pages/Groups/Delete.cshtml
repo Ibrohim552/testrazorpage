@@ -1,0 +1,25 @@
+@page "{id:int}"
+@model RazorApp.Pages.Groups.DeleteModel
+@{
+    ViewData["Title"] = "Delete Group";
+}
+
+<h1>Delete Group</h1>
+
+<h2>Are you sure you want to delete this group?</h2>
+
+<div>
+    <h3>@Model.Group.Name</h3>
+    <p>@Model.Group.Description</p>
+    <ul>
+        <li><strong>Max Students:</strong> @Model.Group.MaxStudents</li>
+        <li><strong>Min Students:</strong> @Model.Group.MinStudents</li>
+        <li><strong>Start Date:</strong> @Model.Group.StartDate.ToShortDateString()</li>
+        <li><strong>End Date:</strong> @Model.Group.EndDate.ToShortDateString()</li>
+    </ul>
+</div>
+
+<form method="post">
+    <button type="submit">Delete</button>
+    <a asp-page="/Groups/Index">Cancel</a>
+</form>

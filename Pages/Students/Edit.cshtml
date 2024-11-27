@@ -1,0 +1,32 @@
+@page "{id:int}"
+@model RazorApp.Pages.Students.EditModel
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="FirstName">First Name</label>
+        <input type="text" id="FirstName" name="FirstName" class="form-control" value="@Model.Student.FirstName" />
+    </div>
+
+    <div class="form-group">
+        <label for="LastName">Last Name</label>
+        <input type="text" id="LastName" name="LastName" class="form-control" value="@Model.Student.LastName" />
+    </div>
+
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" id="Email" name="Email" class="form-control" value="@Model.Student.Email" />
+    </div>
+
+    <div class="form-group">
+        <label for="BirthDate">Birth Date</label>
+        <input type="date" id="BirthDate" name="BirthDate" class="form-control"
+            value="@Model.Student.BirthDate.ToString("yyyy-MM-dd")" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>

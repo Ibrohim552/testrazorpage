@@ -1,0 +1,55 @@
+@page "{id:int}"
+@model RazorApp.Pages.Groups.EditModel
+@{
+    ViewData["Title"] = "Edit Group";
+}
+
+<h1>Edit Group</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Group.Name" class="control-label"></label>
+        <input asp-for="Group.Name" class="form-control" />
+        <span asp-validation-for="Group.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Group.Description" class="control-label"></label>
+        <textarea asp-for="Group.Description" class="form-control"></textarea>
+        <span asp-validation-for="Group.Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Group.MaxStudents" class="control-label"></label>
+        <input asp-for="Group.MaxStudents" class="form-control" />
+        <span asp-validation-for="Group.MaxStudents" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Group.CourseId" class="control-label"></label>
+        <input asp-for="Group.CourseId" class="form-control" />
+        <span asp-validation-for="Group.CourseId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Group.MinStudents" class="control-label"></label>
+        <input asp-for="Group.MinStudents" class="form-control" />
+        <span asp-validation-for="Group.MinStudents" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Group.StartDate" class="control-label"></label>
+        <input asp-for="Group.StartDate" class="form-control" type="date" />
+        <span asp-validation-for="Group.StartDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Group.EndDate" class="control-label"></label>
+        <input asp-for="Group.EndDate" class="form-control" type="date" />
+        <span asp-validation-for="Group.EndDate" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+<a href="@Url.Page("Details", new { id = Model.Group.Id })" class="btn btn-secondary">Back to Details</a>

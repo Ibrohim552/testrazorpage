@@ -1,0 +1,33 @@
+@page
+@model RazorApp.Pages.Groups.IndexModel
+
+<h1>Groups</h1>
+<a asp-page="/Groups/Create" class="btn btn-primary">Add New Group</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var group in Model.Groups.Data!)
+        {
+            <tr>
+                <td>@group.Name</td>
+                <td>@group.Course?.Name</td>
+                <td>
+                    <a asp-page="/Groups/Details" asp-route-id="@group.Id" class="btn btn-info">Details</a>
+                    <a asp-page="/Groups/Edit" asp-route-id="@group.Id" class="btn btn-warning">Edit</a>
+                    <a asp-page="/Groups/Delete" asp-route-id="@group.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    Page @Model.Groups.PageNumber of @Model.Groups.TotalPages
+</p>

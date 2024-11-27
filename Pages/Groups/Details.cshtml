@@ -1,0 +1,34 @@
+@page "{id:int}"
+@model RazorApp.Pages.Groups.DetailsModel
+@{
+    ViewData["Title"] = "Group Details";
+}
+
+<h1>@Model.Group.Name</h1>
+<div>
+    <strong>Description:</strong> @Model.Group.Description
+</div>
+<div>
+    <strong>Course:</strong> @Model.Group.Course?.Name
+</div>
+<div>
+    <strong>Max Students:</strong> @Model.Group.MaxStudents
+</div>
+<div>
+    <strong>Min Students:</strong> @Model.Group.MinStudents
+</div>
+<div>
+    <strong>Start Date:</strong> @Model.Group.StartDate.ToString("yyyy-MM-dd")
+</div>
+<div>
+    <strong>End Date:</strong> @Model.Group.EndDate.ToString("yyyy-MM-dd")
+</div>
+<div>
+    <strong>Created At:</strong> @Model.Group.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")
+</div>
+<div>
+    <strong>Updated At:</strong> @Model.Group.UpdatedAt.ToString("yyyy-MM-dd HH:mm:ss")
+</div>
+
+<a href="@Url.Page("Edit", new { id = Model.Group.Id })" class="btn btn-primary">Edit Group</a>
+<a href="@Url.Page("Delete", new { id = Model.Group.Id })" class="btn btn-danger">Delete Group</a>

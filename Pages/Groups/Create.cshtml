@@ -1,0 +1,43 @@
+@page
+@model RazorApp.Pages.Groups.CreateModel
+
+<h2>Create Group</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Name">Group Name</label>
+        <input type="text" id="Name" name="Name" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea id="Description" name="Description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="CourseId">Course</label>
+        <input type="number" id="Courseid" name="CourseId" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="MaxStudents">Max Students</label>
+        <input type="number" id="MaxStudents" name="MaxStudents" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="MinStudents">Min Students</label>
+        <input type="number" id="MinStudents" name="MinStudents" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="StartDate">Start Date</label>
+        <input type="date" id="StartDate" name="StartDate" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="EndDate">End Date</label>
+        <input type="date" id="EndDate" name="EndDate" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Group</button>
+</form>

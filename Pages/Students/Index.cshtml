@@ -1,0 +1,37 @@
+@page
+@model RazorApp.Pages.Students.IndexModel
+
+@{
+    ViewData["Title"] = "Students";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<a href="/Students/Create" class="btn btn-primary">Add New Student</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Birth Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model.Students)
+        {
+            <tr>
+                <td>@student.FirstName @student.LastName</td>
+                <td>@student.Email</td>
+                <td>@student.Gender</td>
+                <td>@student.BirthDate.ToShortDateString()</td>
+                <td>
+                    <a href="/Students/Edit/@student.Id" class="btn btn-warning">Edit</a>
+                    <a href="/Students/Delete/@student.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
